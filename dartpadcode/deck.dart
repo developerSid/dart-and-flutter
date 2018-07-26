@@ -18,7 +18,7 @@ void main() {
 }
 
 class Deck {
-  final List<Card> cards = [new Card('∞', 'Joker')];
+  final List<Card> cards = [new Card(rank: '∞', suit: 'Joker')];
 
   Deck() {
     final ranks = ['Ace', 'Two', 'Three', 'Four', 'Five'];
@@ -26,7 +26,10 @@ class Deck {
 
     for (var suit in suits) {
       for (var rank in ranks) {
-        final card = new Card(suit, rank);
+        final card = new Card(
+          rank: rank, 
+          suit: suit
+        );
 
         cards.add(card);
       }
@@ -56,12 +59,13 @@ class Deck {
 }
 
 class Card {
-  String suit;
   String rank;
+  String suit;
 
-  Card(this.suit, this.rank);
+  Card({this.rank, this.suit});
   
   String toString() {
     return '[$rank of $suit]';
   }
 }
+
