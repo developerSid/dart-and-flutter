@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 
 void main() {
   final app = MaterialApp(
-    home: new Scaffold(
-      appBar: AppBar(),
+    home: Scaffold(
+      appBar: AppBar(
+        title: Text("Let's see some images"),
+      ),
     )
   );
 
