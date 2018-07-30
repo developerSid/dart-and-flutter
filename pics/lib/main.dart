@@ -1,21 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:pics/src/app.dart';
 
 void main() {
-  final app = MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(
-        title: Text("Let's see some images")
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(
-          Icons.add
-        ),
-        onPressed: () {
-          print('Hi there!');
-        }
-      ),
-    )
-  );
+  final app = App();
 
   runApp(app);
 }
