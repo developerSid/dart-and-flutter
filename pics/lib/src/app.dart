@@ -5,13 +5,12 @@ class App extends StatefulWidget{
   
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
+    return AppState();
   }
-
-
 }
 
 class AppState extends State<App> {
+  int counter = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -25,11 +24,12 @@ class AppState extends State<App> {
                   Icons.add
               ),
               onPressed: () {
-                print('Hi there!');
+                setState(() {
+                  counter++;
+                });
               }
           ),
         )
     );
   }
-
 }
