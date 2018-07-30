@@ -1,10 +1,7 @@
-
 import 'dart:convert';
 
 void main() {
-  final rawJson = '{"url": "http://blah.jpg", "id": 1}';
-  final parsedJson = json.decode(rawJson);
-  final singleImage = ImageModel(parsedJson['id'], parsedJson['url']);
+  final singleImage = ImageModel.fromJson('{"url": "http://blah.jpg", "id": 1}');
   
   print(singleImage);
   print(singleImage.id);
@@ -16,6 +13,12 @@ class ImageModel {
   String url;
   
   ImageModel(this.id, this.url);
+  
+  ImageModel.fromJson(String rawJson) {
+    final parsedJson = json.decode(rawJson);
+    this.id = parsedJson['id'];
+    this.url = parsedJson['url'];
+  }
   
   String toString() {
     return "$id -> $url";
