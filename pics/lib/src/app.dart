@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' show get;
+import 'package:pics/src/models/image_models.dart';
+
 
 class App extends StatefulWidget{
   
@@ -30,7 +32,8 @@ class AppState extends State<App> {
     );
   }
 
-  void fetchImage() {
-    get('https://jsonplaceholder.typicode.com/photos/${counter++}');
+  void fetchImage() async {
+    final response = await get('https://jsonplaceholder.typicode.com/photos/${counter++}');
+    final imageModel = ImageModel.fromJson(response.body);
   }
 }
