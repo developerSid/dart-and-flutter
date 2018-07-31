@@ -10,7 +10,7 @@ class App extends StatefulWidget{
 }
 
 class AppState extends State<App> {
-  int counter = 0;
+  int counter = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +31,6 @@ class AppState extends State<App> {
   }
 
   void fetchImage() {
-    
+    get('https://jsonplaceholder.typicode.com/photos/${counter++}');
   }
 }
