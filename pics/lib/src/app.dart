@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' show get;
 import 'package:pics/src/models/image_models.dart';
+import 'package:pics/src/widgets/image_list.dart';
 
 
 class App extends StatefulWidget{
@@ -22,7 +23,7 @@ class AppState extends State<App> {
           appBar: AppBar(
               title: Text("Let's see some images")
           ),
-          body: Text("$counter"),
+          body: ImageList(images),
           floatingActionButton: FloatingActionButton(
               child: Icon(
                   Icons.add
