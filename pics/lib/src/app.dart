@@ -24,13 +24,13 @@ class AppState extends State<App> {
               child: Icon(
                   Icons.add
               ),
-              onPressed: () {
-                setState(() {
-                  counter++;
-                });
-              }
+              onPressed: fetchImage
           ),
         )
     );
+  }
+
+  void fetchImage() {
+    
   }
 }
