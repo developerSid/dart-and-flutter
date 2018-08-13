@@ -42,6 +42,9 @@ class LoginScreenState extends State<LoginScreen> {
         }
         // return null is not required as dart will return null by default
       },
+      onSaved: (String value) {
+        print(value);
+      },
     );
   }
 
@@ -57,6 +60,9 @@ class LoginScreenState extends State<LoginScreen> {
           return "Password must be at least 4 characters";
         }
       },
+      onSaved: (String value) {
+        print(value);
+      },
     );
   }
 
@@ -65,7 +71,9 @@ class LoginScreenState extends State<LoginScreen> {
         child: Text('Submit!'),
         color: Colors.blue,
         onPressed: () {
-          print(formKey.currentState.validate());
+          if(formKey.currentState.validate()) {
+            formKey.currentState.save();
+          }
         },
     );
   }
