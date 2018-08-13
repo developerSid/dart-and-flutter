@@ -31,11 +31,11 @@ class LoginScreenState extends State<LoginScreen> {
 
   Widget emailField() {
     return TextFormField(
+      keyboardType: TextInputType.emailAddress,
       decoration: InputDecoration(
         labelText: "Email Address",
         hintText: "you@example.com"
       ),
-      keyboardType: TextInputType.emailAddress,
     );
   }
 
@@ -53,9 +53,7 @@ class LoginScreenState extends State<LoginScreen> {
     return RaisedButton(
         child: Text('Submit!'),
         color: Colors.blue,
-        onPressed: () {
-          formKey.currentState.reset();
-        }
+        onPressed: () => formKey.currentState.reset()
     );
   }
 }
