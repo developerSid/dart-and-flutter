@@ -36,16 +36,27 @@ class LoginScreenState extends State<LoginScreen> {
         labelText: "Email Address",
         hintText: "you@example.com"
       ),
+      validator: (String value) {
+        if (!value.contains("@")) {
+          return "Please enter a valid email";
+        }
+        // return null is not required as dart will return null by default
+      },
     );
   }
 
   Widget passwordField() {
     return TextFormField(
+      obscureText: true,
       decoration: InputDecoration(
         labelText: "Password",
         hintText: "Password"
       ),
-      obscureText: true,
+      validator: (String value){
+        if (value.length < 4) {
+          return "Password must be at least 4 characters";
+        }
+      },
     );
   }
 
@@ -53,7 +64,9 @@ class LoginScreenState extends State<LoginScreen> {
     return RaisedButton(
         child: Text('Submit!'),
         color: Colors.blue,
-        onPressed: () => formKey.currentState.reset()
+        onPressed: () {
+          print(formKey.currentState.validate());
+        },
     );
   }
 }
