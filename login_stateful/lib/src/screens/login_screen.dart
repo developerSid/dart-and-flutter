@@ -10,6 +10,8 @@ class LoginScreen extends StatefulWidget {
 
 class LoginScreenState extends State<LoginScreen> {
   final formKey = GlobalKey<FormState>();
+  String email = "";
+  String password = "";
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +45,7 @@ class LoginScreenState extends State<LoginScreen> {
         // return null is not required as dart will return null by default
       },
       onSaved: (String value) {
-        print(value);
+        email = value;
       },
     );
   }
@@ -61,7 +63,7 @@ class LoginScreenState extends State<LoginScreen> {
         }
       },
       onSaved: (String value) {
-        print(value);
+        password = value;
       },
     );
   }
@@ -73,6 +75,8 @@ class LoginScreenState extends State<LoginScreen> {
         onPressed: () {
           if(formKey.currentState.validate()) {
             formKey.currentState.save();
+
+            print("Time to save email $email and password $password to my API");
           }
         },
     );
