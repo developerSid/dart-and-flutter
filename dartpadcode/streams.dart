@@ -14,5 +14,8 @@ void main() {
   final order = Order('banana');
   
   controller.sink.add(order);
+  
+  controller.stream
+    .map((order) => order.type);
 }
 
