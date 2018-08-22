@@ -18,6 +18,10 @@ void main(){
   input.onInput
     .map((dynamic event) => event.target.value)
     .transform(validator)
+    .listen(
+      (inputValue) => div.innerHtml = '',
+      onError: (err) => div.innerHtml = err
+    )
   ;
 }
 
