@@ -11,7 +11,7 @@ class Order {
 void main() {
   final controller = StreamController();
   
-  final order = Order('banana');
+  final order = Order('chocolate');
   
   final baker = new StreamTransformer.fromHandlers(
     handleData: (cakeType, sink) {
@@ -28,6 +28,10 @@ void main() {
   controller.stream
     .map((order) => order.type)
     .transform(baker)
+    .listen(
+    	(cake) => print('Here\'s your $cake'),
+      onError: (err) => print(err)
+  	)
   ;
 }
 
