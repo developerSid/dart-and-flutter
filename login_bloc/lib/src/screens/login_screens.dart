@@ -6,9 +6,9 @@ class LoginScreen extends StatelessWidget {
 
    @override
    Widget build(BuildContext context) {
-     final bloc = Provider.of(context);
+      final bloc = Provider.of(context);
 
-     bloc.changeEmail('');
+      bloc.changeEmail('');
 
       return Container(
          margin: EdgeInsets.all(20.0),
@@ -23,24 +23,24 @@ class LoginScreen extends StatelessWidget {
       );
    }
 
-  Widget emailField(Bloc bloc) {
+   Widget emailField(Bloc bloc) {
       return StreamBuilder(
-        stream: bloc.email,
-        builder: (context, snapshot) {
-           return TextField(
-              onChanged: bloc.changeEmail,
-              keyboardType: TextInputType.emailAddress,
-              decoration: InputDecoration(
-                 hintText: "you@example.com",
-                 labelText: "Email Address",
-                 errorText: snapshot.error
-              ),
-           );
-        },
+         stream: bloc.email,
+         builder: (context, snapshot) {
+            return TextField(
+               onChanged: bloc.changeEmail,
+               keyboardType: TextInputType.emailAddress,
+               decoration: InputDecoration(
+                  hintText: "you@example.com",
+                  labelText: "Email Address",
+                  errorText: snapshot.error
+               ),
+            );
+         },
       );
-  }
+   }
 
-  Widget passwordField(Bloc bloc) {
+   Widget passwordField(Bloc bloc) {
       return StreamBuilder(
          stream: bloc.password,
          builder: (context, snapshot) {
@@ -55,10 +55,9 @@ class LoginScreen extends StatelessWidget {
             );
          },
       );
+   }
 
-  }
-
-  Widget submitButton(Bloc bloc) {
+   Widget submitButton(Bloc bloc) {
       return StreamBuilder(
          stream: bloc.submitValid,
          builder: (context, snapshot) {
@@ -71,5 +70,5 @@ class LoginScreen extends StatelessWidget {
             );
          },
       );
-  }
+   }
 }
